@@ -20,14 +20,14 @@ And then execute:
 ### Create a Batch Worker
 
 * include 'Resque::Plugins::Batch::Job'
-* the method is perform_job (not perform)
+* the method is perform_work (not perform)
 * You should return `success, message`
 
 ```ruby
 class Archive
   include Resque::Plugins::Batch::Job
 
-  def self.perform_job(repo_id, branch = 'master')
+  def self.perform_work(repo_id, branch = 'master')
     repo = Repository.find(repo_id)
     repo.create_archive(branch)
 
